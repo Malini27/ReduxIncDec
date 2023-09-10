@@ -1,71 +1,63 @@
 import './App.css'
 function  App(){
-    document.addEventListener('DOMContentLoaded',()=>{
-        let burger=document.querySelector(".burger");
-        let links=document.querySelector(".nav_links");
-        let txtarea=document.querySelector(".text_area");
-
-        burger.addEventListener('click',()=> {
-           links.classList.toggle("nav_show");
-           txtarea.classList.toggle("textareahide");
-
-    })
-
-    })
+    
     return(
         <>
-        <header>
-            <div className='header_content'>
-            <div className='logo'>
-                <img src='th.png' alt=''></img>
-            </div>
-            <ul className='nav_links'>
-                <li><a href='a'>Home</a></li>
-                <li><a href='a'>About</a></li>
-                <li><a href='a'>Courses</a></li>
-                <li><a href='a'>Contact</a></li>
-            </ul>
-            <div className='burger'>
-            <i className="fa-solid fa-bars" style={{color: "#f7f7f7",}} />
-               
-            </div>
-
-            </div>
-            <div className='text_center'>
-                <h3>Welcome To</h3>
-                <h1>RJ College Of Engineering</h1>
-                <a className='btn' href="a">Register Here</a>
-            </div>
-        </header>
-
         <main>
-            <section className='wwa content mt mb'>
-                <div className='wwa_heading'>
-                    <h2>About Us</h2>
+        <div id='landing'>
+            <div id='landing_text'>
+                <div id='landing_text_inner'>
+                    <h1>My Photography Website</h1>
+                    
                 </div>
-                <div className='wwa_content flex_design'>
-                    <div className='vision wwa_box'>
-                        <h3>Vision</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            
 
-                    </div>
-                    <div className='mission wwa_box'>
-                        <h3>Mission</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                    </div>
-                    <div className='whoweare wwa_box'>
-                        <h3>Who We Are</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
-                    </div>
+            </div>
+        </div>
+            <div id='images'>
+                <div id='header'>
+                        <h3>My Work</h3>
+
                 </div>
-            </section>
+                    <img src='photo1.png' alt='natural image' className='image_class'></img>
+                    <div className='caption'>
+                        <h3>Photo 1</h3>
+                        <p>Sunset Beach View</p>
+                    </div>
+                    <img src='photo2.png'alt='natural image'className='image_class'></img>
+                    <div className='caption'>
+                        <h3>Photo 2</h3>
+                        <p>Beautiful Blue Ocean</p>
+                    </div>
+                    <img src='photo3.png'alt='natural image' className='image_class'></img>
+                    <div className='caption'>
+                        <h3>Photo 3</h3>
+                        <p>Autumn Fall</p>
+                    </div>
+                    <img src='photo4.png'alt='natural image'className='image_class'></img>
+                    <div className='caption'>
+                        <h3>Photo 4</h3>
+                        <p>Lovable Lavender Field</p>
+                    </div>
+                    <img src='photo5.png'alt='natural image' className='image_class'></img>
+                    <div className='caption'>
+                        <h3>Photo5</h3>
+                        <p>Full Moon View</p>
+                    </div>
+
+            </div>
+
         </main>
-        </>
-
         
-    
-    
+            <footer>
+                <h3 className='foot'>Get In Touch</h3>
+                <p className='foot1'>Email or Call me to set up a consult</p>
+                <p className='foot2'>hello@gmail.com</p>
+                <p className='foot2'>8928738974</p>
+            </footer>
+        
 
+        </>
         
     )
 }
