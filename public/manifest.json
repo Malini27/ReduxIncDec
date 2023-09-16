@@ -31,7 +31,13 @@
       "src": "landingimage.png",
       "type": "image/png",
       "sizes": "512x512"
+    },
+    {
+      "src": "maths.jpg",
+      "type": "image/jpg",
+      "sizes": "512x512"
     }
+
 
 
   ],

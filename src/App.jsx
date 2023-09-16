@@ -13,15 +13,15 @@ function  App(){
 
     
     return(
-        <div>
+        <div className='div1'>
             <h2>sum calculator:</h2>
-            <div>
+            <div className='div2'>
                
                 <input type="Number" value={num1} className="n1"onChange={(e) => setnum1(e.target.value)}></input>
                 <input type="Number" value={num2} className='n1' onChange={(e) => setnum2(e.target.value)}></input>
             
             <button className='btn' onClick={calculateSum}>+</button>
-            <p className='n1'>Sum: {sum}</p>
+            <p >Sum: {sum}</p>
             </div>
         </div>
         

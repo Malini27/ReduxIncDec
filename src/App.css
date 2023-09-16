@@ -1,5 +1,25 @@
+body{
+    background: url("/public/maths.jpeg");
+    background-size: cover;
+    color:rgba(255, 255, 0, 0.863);
+
+}
+
+.div1{
+    margin-left: 30%;
+    width: 400px;
+   background-color:rgba(0, 0, 0, 0.767);
+    margin-top: 15%;
+
+
+}
 h2{
-    margin-left: 10px;
+    color: rgba(255, 255, 0, 0.863);
+    margin-left: 30%;
+}
+p{
+    color: rgba(255, 255, 0, 0.863);
+    margin-left: 40%;
 }
 .n1{
     margin-left: 10px;
