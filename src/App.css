@@ -1,6 +1,8 @@
 body{
     background: url("/public/maths.jpeg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     color:rgba(255, 255, 0, 0.863);
 
 }
@@ -8,7 +10,7 @@ body{
 .div1{
     margin-left: 30%;
     width: 400px;
-   background-color:rgba(0, 0, 0, 0.767);
+    background-color:rgba(0, 0, 0, 0.767);
     margin-top: 15%;
 
 
@@ -27,3 +29,20 @@ p{
 .btn{
     margin-left: 10px;
 }
+
+@media screen and (max-width:570px){
+    div1{
+        margin: 10% auto;
+        width: 80%;
+    }
+    .h2,p{
+        margin-left: 10px;
+
+    }
+    .n1,btn{
+        margin-left: 0;
+    }
+
+    
+}
+
