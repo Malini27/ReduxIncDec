@@ -1,48 +1,35 @@
 body{
-    background: url("/public/maths.jpeg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color:rgba(255, 255, 0, 0.863);
-
+    color:white;
+    background-color: black;
 }
 
-.div1{
-    margin-left: 30%;
-    width: 400px;
-    background-color:rgba(0, 0, 0, 0.767);
-    margin-top: 15%;
-
+.container{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 30px;
+}
+.searchbar{
+    width: 200px;
+    height: 20px;
+    border-width: 3px;
+    border-radius: 10px;
+}
+.searchlist{
+    margin-top: 50px;
+    list-style-type: none;
+    margin-right: 50px;
 
 }
-h2{
-    color: rgba(255, 255, 0, 0.863);
-    margin-left: 30%;
-}
-p{
-    color: rgba(255, 255, 0, 0.863);
-    margin-left: 40%;
-}
-.n1{
-    margin-left: 10px;
-}
-.btn{
-    margin-left: 10px;
-}
-
-@media screen and (max-width:570px){
-    div1{
-        margin: 10% auto;
-        width: 80%;
-    }
-    .h2,p{
-        margin-left: 10px;
-
-    }
-    .n1,btn{
-        margin-left: 0;
-    }
-
+.result{
+    color: black;
+    margin-left: 90px;
+    background-color: rgb(247, 247, 247);
+    max-width: 150px;
     
 }
-
+.result:hover{
+    background-color: none;
+}
