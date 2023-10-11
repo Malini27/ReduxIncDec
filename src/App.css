@@ -11,12 +11,20 @@ body{
     padding: 20px;
     border-radius: 30px;
 }
-.searchbar{
-    width: 200px;
+.input1{
+    width: 150px;
     height: 20px;
     border-width: 3px;
     border-radius: 10px;
 }
+.input2{
+    margin-top: 20px;
+    width: 150px;
+    height: 20px;
+    border-width: 3px;
+    border-radius: 10px;
+}
+
 .searchlist{
     margin-top: 50px;
     list-style-type: none;
