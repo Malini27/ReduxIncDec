@@ -1,75 +1,66 @@
 import React from 'react';
-import { BrowserRouter,Route,Link, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import './App.css';
 
-const Menu=()=>{
-    return (
-    <div>
-        <ul className='ul1'>
-            <li>Chicken Briyani</li>
-            <li>Mutton Briyani</li>
-            <li>Chicken Pasta</li>
-            <li>Veg Pasta</li>
-            <li>Pizza</li>
-            <li>Burger</li>
-        </ul>
-    </div>
-    )
-}
-const ComboOffer=()=>{
-    return (
-    <div>
-        <ul className='ul2'>
-            <li>Chicken Briyani+Chicken lollipop</li>
-            <li>Mutton Briyani+Tandoori</li>
-            <li>Pizza+Coke</li>
-            <li>Burger+ThumbsUP</li>
-        </ul>
-    </div>
-    )
-}
-const About=()=>{
-    return (
-        <div className='ul3'>
-            <p>For Order Contact Us : 7823781234 </p>
-            <p>Email : kenrestaurant@gmail.com</p>
-        </div>
-    )
-}
-
-const Navigation=()=>{
-    return (
-    <div className='container'>
-        <p><b>KEN RESTAURANT</b></p>
-        <hr></hr>
-    <nav>
-        <ul className='navi'>
-            <li className='li2'><Link to='/menu'>Menu</Link></li>
-            <li className='li2'><Link to='/combo'>Combo Offer</Link></li>
-            <li className='li2'><Link to='/about'>About</Link></li>
-
-        </ul>
-    </nav>
-    </div>
-    );
-};
-
 const App=()=>{
-return(  
-    <>
-    <BrowserRouter>
-      <div>
-        <Navigation/>
-        <Routes>
-            <Route path='/menu' element={<Menu/>} />
-            <Route path='/combo' element={<ComboOffer/>} />
-            <Route path='/about' element={<About/>} />
+    const[email,setEmail]=useState('')
+    const[isValidEmail,setisValidEmail]=useState(true)
 
-        </Routes>
-        
-      </div>
-    </BrowserRouter>
-    </>
+    const[name,setName]=useState('')
+    const[isValidName,setisValidName]=useState(true)
+
+    const onchangeNameHandler=(e)=>{
+        setName(e.target.value)
+        setisValidName(e.target.value?.length>0)
+
+    }
+
+    const onchangeEmailHandler=(e)=>{
+        const inputEmail=(e.target.value)
+        const emailPattern=/^[a-zA-Z0-9._-]+@[[a-zA-Z0-9._-]+\.[a-zA-z]{2,4}$/;
+        setisValidEmail(emailPattern.test(inputEmail))
+        setEmail(inputEmail)
+    }
+
+    const handleSubmit=(e)=>{
+        e.preventDefault();
+        const emailPattern=/^[a-zA-Z0-9._-]+@[[a-zA-Z0-9._-]+\.[a-zA-z]{2,4}$/;
+        setisValidEmail(emailPattern.test(email))
+        setisValidName(name.length>0)
+
+        isValidEmail && isValidName ? alert("Form submitted"):
+        alert('form validation Failed')
+
+    }
+
+
+return( 
+    <>
+    <div className='container'>
+        <h1>React Form Validation</h1>
+        <form onSubmit={handleSubmit}>
+            <div className='mail'>
+               <label htmlFor='email'>Email:</label>
+               <input type='text' id='email'name='email' value={email} onChange={onchangeEmailHandler}className={isValidEmail? 'valid' : 'invalid'}></input>
+            </div>
+            <div>
+                {
+                    !isValidEmail &&(<span>Enter valid email</span>)
+                }
+            </div>
+            <div className='name'>
+                <label htmlFor='name'>Name:</label>
+                <input type='text' id='name' name='name' value={name} onChange={onchangeNameHandler} className={isValidName? 'valid' : 'invalid'}></input>
+            </div>
+            <div>
+                {
+                    !isValidName &&(<span>Enter valid name</span>)
+                }
+            </div>
+            <button type='submit'>Submit</button>
+        </form>
+    </div>
+    </> 
     
 );
 }
