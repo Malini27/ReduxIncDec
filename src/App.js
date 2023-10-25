@@ -3,64 +3,64 @@ import { useState } from 'react';
 import './App.css';
 
 const App=()=>{
-    const[email,setEmail]=useState('')
-    const[isValidEmail,setisValidEmail]=useState(true)
+    const[display,setDisplay]=useState(0)
+    const[operand,setOperand]=useState('')
+    const[operator,setOperator]=useState('')
 
-    const[name,setName]=useState('')
-    const[isValidName,setisValidName]=useState(true)
+    const handleOperandClick=(digit)=>{
+        if(display=== '0'||operator){
+            setDisplay(digit)
+        }
+        else{
+            setDisplay(display+digit)
+        }
 
-    const onchangeNameHandler=(e)=>{
-        setName(e.target.value)
-        setisValidName(e.target.value?.length>0)
+    }
+    const handleEqualClick=()=>{
+        console.log(`${operand} ${operator} ${display}`)
+        const result = eval(`${parseFloat(operand)} ${operator}${parseFloat(display)}`);
+        setDisplay(String(result));
+        setOperand('');
+        setOperator('')
+    }
+    const handleOperatorClick=(SelectedOperator)=>{
+        if(!operator){
+            setOperand(display);
+            setOperator(SelectedOperator);
+        }
 
     }
 
-    const onchangeEmailHandler=(e)=>{
-        const inputEmail=(e.target.value)
-        const emailPattern=/^[a-zA-Z0-9._-]+@[[a-zA-Z0-9._-]+\.[a-zA-z]{2,4}$/;
-        setisValidEmail(emailPattern.test(inputEmail))
-        setEmail(inputEmail)
-    }
-
-    const handleSubmit=(e)=>{
-        e.preventDefault();
-        const emailPattern=/^[a-zA-Z0-9._-]+@[[a-zA-Z0-9._-]+\.[a-zA-z]{2,4}$/;
-        setisValidEmail(emailPattern.test(email))
-        setisValidName(name.length>0)
-
-        isValidEmail && isValidName ? alert("Form submitted"):
-        alert('form validation Failed')
-
-    }
-
-
+    
+    
 return( 
-    <>
     <div className='container'>
-        <h1>React Form Validation</h1>
-        <form onSubmit={handleSubmit}>
-            <div className='mail'>
-               <label htmlFor='email'>Email:</label>
-               <input type='text' id='email'name='email' value={email} onChange={onchangeEmailHandler}className={isValidEmail? 'valid' : 'invalid'}></input>
-            </div>
-            <div>
-                {
-                    !isValidEmail &&(<span>Enter valid email</span>)
-                }
-            </div>
-            <div className='name'>
-                <label htmlFor='name'>Name:</label>
-                <input type='text' id='name' name='name' value={name} onChange={onchangeNameHandler} className={isValidName? 'valid' : 'invalid'}></input>
-            </div>
-            <div>
-                {
-                    !isValidName &&(<span>Enter valid name</span>)
-                }
-            </div>
-            <button type='submit'>Submit</button>
-        </form>
+    <div className='calculator'>
+        <div className='display'>{display}</div>
+        <div className='buttons'>
+            {
+                [7,8,9,'+',4,5,6,'-',1,2,3,'*',0,'=','/'].map(items=>{
+                    return<button key={items}
+                    onClick={()=>{
+                        if(typeof items ==='number'){
+                            handleOperandClick(String(items));
+                        }
+                        else if(items === '='){
+                            handleEqualClick();
+                        }
+                        else{
+                            handleOperatorClick(items);
+                        }
+                    }}
+                    >{items}</button>
+                })
+            }
+            {
+                <button onClick={()=>{setDisplay('0');setOperand('')}}>AC</button>
+            }
+        </div>
     </div>
-    </> 
+    </div>
     
 );
 }

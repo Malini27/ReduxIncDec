@@ -1,27 +1,63 @@
 body{
     color:white;
-    background-color: black;
+    background-color:rgb(115, 115, 115);
    
 }
-
 .container{
-    text-align: center;
+    margin-top: 150px;
+}
+
+.calculator {
+    width: 300px;
     margin: 0 auto;
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .display {
+    color: black;
+    background-color: #f0f0f0;
+    padding: 10px;
+    font-size: 24px;
+    text-align: right;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2px;
+    padding: 10px;
+  }
+  
+  button {
+    background-color: #333;
+    color: #fff;
+    font-size: 24px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
 }
-.mail{
-    margin-top: 50px;
+
+button:hover {
+  background-color: #555;
 }
-.name{
-    margin-top: 30px;
-}
-.container button{
-    margin-top: 30px;
-    margin-left: 15px;
-}
-.container span{
-    color: rgb(186, 53, 53);
-    font-size: smaller;
+
+@media(max-width: 600px){
+    .calculator{
+        max-width: 100%;
+    }
+    .container{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .display {
+        font-size: 18px;
+    }
+    
+    button {
+        font-size: 18px;
+        padding: 15px; 
+    }
 }
