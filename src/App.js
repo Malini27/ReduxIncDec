@@ -18,6 +18,7 @@ const App=()=>{
     }
     const handleEqualClick=()=>{
         console.log(`${operand} ${operator} ${display}`)
+        // eslint-disable-next-line no-eval
         const result = eval(`${parseFloat(operand)} ${operator}${parseFloat(display)}`);
         setDisplay(String(result));
         setOperand('');
