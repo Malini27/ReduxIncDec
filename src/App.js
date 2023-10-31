@@ -1,53 +1,18 @@
 import React from 'react';
-import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official';
-// import './App.css';
+import './App.css';
+import { useSelector,useDispatch } from 'react-redux';
+import { increment,decrement } from './reducers/counter';
 
 const App=()=>{
-    const options ={
-        chart: {
-        type: 'pie'
-      },
-      title: {
-        text: 'Engineering Department'
-      },
-       series: [
-        {
-        name: 'Students',
-        colorByPoint: true,
-        data: [
-          {
-            name: 'computer Science',
-            y: 39.5,
-            sliced: true,
-            selected: true
-          },
-          {
-            name: 'Information Technology',
-            y: 18.34
-          },
-          {
-            name: 'Electronics and Communication',
-            y: 20.2
-          },
-          {
-            name: 'civil',
-            y: 10.23
-          },
-          {
-            name: 'Mechanic',
-            y:11.73
-          }
-          ]
-      }]
-    };
-    
-    
+    const {count} = useSelector(state=> state)
+    const dispatch=useDispatch();
 return( 
-    <div>
-        <HighchartsReact highcharts={Highcharts} options={options}/>
+    <div className='container'>
+       <div className='counter'>Counter:{count}</div>
+       <button className='inc' onClick={()=>dispatch(increment(1))}>increment</button>
+       <button className='dec' onClick={()=>dispatch(decrement(1))}>decrement</button>
 
-    </div>
+    </div> 
     
 );
 }
